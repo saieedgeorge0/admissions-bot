@@ -32,9 +32,7 @@ var findOrCreateSession = function (fbid) {
 }
 
 var read = function (sender, message, reply) {
-    message.toLowerCase()
-	if (message === 'hello' || message === 'hi' || message === 'hey' || message === 'yo' || message === 'heyo') {
-		// Let's reply back hello
+    if((message.toLowerCase().indexOf('hello') > -1) || (message.toLowerCase().indexOf('hi') > -1) || (message.toLowerCase().indexOf('hey') > -1) || (message.toLowerCase().indexOf('yo') > -1) || (message.toLowerCase().indexOf('heyo') > -1)) {
 		message = "Hi! I'm MIT's Admissions chatbot. You can ask me anything you'd like to know about MIT!"
 		reply(sender, message)
 	} else {
