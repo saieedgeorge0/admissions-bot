@@ -1,6 +1,6 @@
 'use strict';
 
-const WIT_TOKEN = "VQ2TPQIM5IIP4TMKBFPGTOFG4D5C4ANI"
+const WIT_TOKEN = "K7K2QDDM7PGT44JWELM6FIDEC62P7XIB"
 if (!WIT_TOKEN) {
   throw new Error('Missing WIT_TOKEN. Go to https://wit.ai/docs/quickstart to get one.')
 }
