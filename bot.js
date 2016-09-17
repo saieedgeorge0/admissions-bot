@@ -32,6 +32,7 @@ var findOrCreateSession = function (fbid) {
 }
 
 var read = function (sender, message, reply) {
+    message.toLowerCase()
 	if (message === 'hello' || message === 'hi' || message === 'hey' || message === 'yo' || message === 'heyo') {
 		// Let's reply back hello
 		message = "Hi! I'm MIT's Admissions chatbot. You can ask me anything you'd like to know about MIT!"
