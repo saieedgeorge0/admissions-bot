@@ -605,8 +605,8 @@ var read = function (sender, message, reply) {
             {
                 if (listomajors.hasOwnProperty(amajor)) {
                     var majorwords = listomajors[amajor].name.toString().toLowerCase().split(" ")
-                    for (var thing in majorwords) {
-                        if (message.toLowerCase().indexOf(thing) > -1){
+                    for(var i = 0; i < majorwords.length; i++) {
+                        if (message.toLowerCase().indexOf(majorwords[i]) > -1){
                             var ha = listomajors[amajor].name.toString()
                             reply(sender, ha)
                         }
