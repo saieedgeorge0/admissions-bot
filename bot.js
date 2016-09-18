@@ -634,14 +634,11 @@ var read = function (sender, message, reply) {
                             if (listomajors[amajor]["pdf-link"].toString() != "null") {
                             ha += ", or view the overview PDF at " + listomajors[amajor]["pdf-link"].toString() + "."
                             }
-                            matchingmajors.push(ha)
+                            reply(sender, ha)
                     }
                 }
                 containsmajor=false
             }
-        if (matchingmajors.length == 1) {
-            reply(sender, matchingmajors[0])
-        }
     }
     else {
 		// Let's find the user
