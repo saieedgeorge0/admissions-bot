@@ -630,12 +630,11 @@ var read = function (sender, message, reply) {
                             ha += ", or view the overview PDF at " + listomajors[amajor]["pdf-link"].toString() + "."
                             }
                             endresult += ha
-                            break
                         }
                     }
-                    reply(sender, endresult)
                 }
             }
+        reply(sender, endresult)
     }
     else {
 		// Let's find the user
