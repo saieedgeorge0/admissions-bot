@@ -606,6 +606,11 @@ var read = function (sender, message, reply) {
                 if (listomajors.hasOwnProperty(amajor)) {
                     var majorwords = listomajors[amajor].name.toString().toLowerCase().split(" ")
                     for(var i = 0; i < majorwords.length; i++) {
+                        if (majorwords[i] == "and") {
+                            majorwords.splice(i, 1);
+                        }
+                    }
+                    for(var i = 0; i < majorwords.length; i++) {
                         if (message.toLowerCase().indexOf(majorwords[i]) > -1){
                             var ha = listomajors[amajor].name.toString() + ", or, Course " + listomajors[amajor].course.toString() + ", "
                             if ((listomajors[amajor].ismajor.toString() == "1") && (listomajors[amajor].isminor.toString() == "1")) {
