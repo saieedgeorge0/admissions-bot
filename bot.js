@@ -605,11 +605,11 @@ var read = function (sender, message, reply) {
             {
                 if (listomajors.hasOwnProperty(amajor)) {
                     var majorwords = listomajors[amajor].name.toString().toLowerCase().split(" ")
-                    /*for(var i = 0; i < majorwords.length; i++) {
+                    for(var i = 0; i < majorwords.length; i++) {
                         if (majorwords[i] == "and") {
                             majorwords.splice(i, 1);
                         }
-                    }*/
+                    }
                     for(var i = 0; i < majorwords.length; i++) {
                         if (message.toLowerCase().indexOf(majorwords[i]) > -1){
                             var ha = listomajors[amajor].name.toString() + ", or, Course " + listomajors[amajor].course.toString() + ", "
@@ -628,7 +628,7 @@ var read = function (sender, message, reply) {
                             ha += ", or view the overview PDF at " + listomajors[amajor]["pdf-link"].toString() + "."
                             }
                             reply(sender, ha)
-                            //break
+                            break
                         }
                     }
                 }
