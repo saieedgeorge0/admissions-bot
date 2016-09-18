@@ -662,6 +662,7 @@ var read = function (sender, message, reply) {
             reply(sender, "this SUCKS")
         }
         var blah = namemajors[0].toString() + namemajors[1].toString() + namemajors[2].toString()
+        reply(sender, blah)
     }
     else {
 		// Let's find the user
