@@ -607,7 +607,17 @@ var read = function (sender, message, reply) {
                     var majorwords = listomajors[amajor].name.toString().toLowerCase().split(" ")
                     for(var i = 0; i < majorwords.length; i++) {
                         if (message.toLowerCase().indexOf(majorwords[i]) > -1){
-                            var ha = listomajors[amajor].name.toString()
+                            var ha = listomajors[amajor].name.toString() + ", or, " listomajors[amajor].course.toString() ", "
+                            if ((listomajors[amajor].ismajor.toString() == "1") && (listomajors[amajor].isminor.toString() == "1")) {
+                                ha += "is offered as a both a major and a minor."
+                            }
+                            else if (listomajors[amajor].ismajor.toString() == "1") {
+                                ha += "is only offered as a major."
+                            }
+                            else if (listomajors[amajor].isminor.toString() == "1") {
+                                ha += "is only offered as a minor."
+                            }
+                            ha += " If you'd like to learn more, you can visit the dept. site at " + listomajors[amajor].link.toString() + ", or view the requirements PDF at " + listomajors[amajor]["pdf-link"].toString() + "."
                             reply(sender, ha)
                         }
                     }
