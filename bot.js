@@ -595,7 +595,7 @@ var findOrCreateSession = function (fbid) {
   return sessionId
 }
 
-var endresult = ""
+var containsmajor = false
 
 var read = function (sender, message, reply) {
     if((message.toLowerCase().indexOf('hello') > -1) || (message.toLowerCase().indexOf('hi') > -1) || (message.toLowerCase().indexOf('hey') > -1) || (message.toLowerCase().indexOf('yo') > -1) || (message.toLowerCase().indexOf('heyo') > -1)) {
@@ -614,6 +614,10 @@ var read = function (sender, message, reply) {
                     }
                     for(var i = 0; i < majorwords.length; i++) {
                         if (message.toLowerCase().indexOf(majorwords[i]) > -1){
+                            containsmajor = true
+                        }
+                    }
+                    if (containsmajor){
                             var ha = listomajors[amajor].name.toString() + ", or, Course " + listomajors[amajor].course.toString() + ", "
                             if ((listomajors[amajor].ismajor.toString() == "1") && (listomajors[amajor].isminor.toString() == "1")) {
                                 ha += "is offered as a both a major and a minor."
@@ -629,12 +633,10 @@ var read = function (sender, message, reply) {
                             if (listomajors[amajor]["pdf-link"].toString() != "null") {
                             ha += ", or view the overview PDF at " + listomajors[amajor]["pdf-link"].toString() + "."
                             }
-                            endresult += ha
-                        }
+                            reply(sender, ha)
                     }
                 }
             }
-        reply(sender, endresult)
     }
     else {
 		// Let's find the user
