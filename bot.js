@@ -646,21 +646,22 @@ var read = function (sender, message, reply) {
         if (namemajors.length == 1) {
             reply(sender, matchingmajors[0])
         }
-        if(namemajors.length > 1) {
+        /*if(namemajors.length > 1) {
             var blah = namemajors[0].toString() + namemajors[1].toString() + namemajors[2].toString()
             reply(sender, blah)
-            /*specifymajor = "You asked for too generic a major! Here's a list of majors that fit your search: "
+            specifymajor = "You asked for too generic a major! Here's a list of majors that fit your search: "
             for (var m = 0; m<namemajors.length; m++) {
                 specifymajor += namemajors[m].toString() + ", "
             }
             specifymajor = specifymajor.slice(0, -2)
             specifymajor += ". "
             specifymajor += "Ask for something more specific, and I can give you more info!"
-            reply(sender, specifymajor.toString())*/
-        }
+            reply(sender, specifymajor.toString())
+        }*/
         else {
             reply(sender, "this SUCKS")
         }
+        var blah = namemajors[0].toString() + namemajors[1].toString() + namemajors[2].toString()
     }
     else {
 		// Let's find the user
