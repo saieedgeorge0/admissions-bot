@@ -617,7 +617,11 @@ var read = function (sender, message, reply) {
                             else if (listomajors[amajor].isminor.toString() == "1") {
                                 ha += "is only offered as a minor."
                             }
-                            ha += " If you'd like to learn more, you can visit the dept. site at " + listomajors[amajor].link.toString() + ", or view the requirements PDF at " + listomajors[amajor]["pdf-link"].toString() + "."
+                            ha += " If you'd like to learn more, you can visit the dept. site at " + listomajors[amajor].link.toString()
+                            
+                            if (listomajors[amajor]["pdf-link"].toString() != "null") {
+                            ha += ", or view the requirements PDF at " + listomajors[amajor]["pdf-link"].toString() + "."
+                            }
                             reply(sender, ha)
                         }
                     }
