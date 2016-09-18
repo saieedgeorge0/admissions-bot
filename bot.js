@@ -648,7 +648,7 @@ var read = function (sender, message, reply) {
         }
         else if(matchingmajors.length > 1) {
             specifymajor = "You asked for too generic a major! Here's a list of majors that fit your search: "
-            for (var m = 0; var<namemajors.length; m++) {
+            for (var m = 0; m<namemajors.length; m++) {
                 specifymajor += namemajors[m].toString() + ", "
             }
             specifymajor += "Ask for something more specific, and I can give you more info!"
