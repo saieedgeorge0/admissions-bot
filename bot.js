@@ -597,6 +597,7 @@ var findOrCreateSession = function (fbid) {
 
 var containsmajor = false
 var matchingmajors = []
+var namemajors = []
 
 var read = function (sender, message, reply) {
     if((message.toLowerCase().indexOf('hello') > -1) || (message.toLowerCase().indexOf('hi') > -1) || (message.toLowerCase().indexOf('hey') > -1) || (message.toLowerCase().indexOf('yo') > -1) || (message.toLowerCase().indexOf('heyo') > -1)) {
@@ -605,6 +606,7 @@ var read = function (sender, message, reply) {
 	} 
     else if ((message.toLowerCase().indexOf('major') > -1) || (message.toLowerCase().indexOf('course') > -1) || (message.toLowerCase().indexOf('concentration') > -1) || (message.toLowerCase().indexOf('department') > -1) || (message.toLowerCase().indexOf('dept') > -1)) {
         matchingmajors=[]
+        namemajors=[]
         for (var amajor in listomajors)
             {
                 if (listomajors.hasOwnProperty(amajor)) {
@@ -635,13 +637,22 @@ var read = function (sender, message, reply) {
                             if (listomajors[amajor]["pdf-link"].toString() != "null") {
                             ha += ", or view the overview PDF at " + listomajors[amajor]["pdf-link"].toString() + "."
                             }
+                            namemajors.push(listomajors[amajor].name.toString())
                             matchingmajors.push(ha.toString())
                     }
                 }
                 containsmajor=false
             }
-        if(matchingmajors.length == 1) {
+        if (matchingmajors.length == 1) {
             reply(sender, matchingmajors[0])
+        }
+        else if(matchingmajors.length > 1) {
+            specifymajor = "You asked for too generic a major! Here's a list of majors that fit your search: "
+            for (var m = 0; var<namemajors.length; m++) {
+                specifymajor += namemajors[m].toString() + ", "
+            }
+            specifymajor += "Ask for something more specific, and I can give you more info!"
+            reply(sender, specifymajor)
         }
     }
     else {
