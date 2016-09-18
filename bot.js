@@ -596,6 +596,7 @@ var findOrCreateSession = function (fbid) {
 }
 
 var containsmajor = false
+var matchingmajors = []
 
 var read = function (sender, message, reply) {
     if((message.toLowerCase().indexOf('hello') > -1) || (message.toLowerCase().indexOf('hi') > -1) || (message.toLowerCase().indexOf('hey') > -1) || (message.toLowerCase().indexOf('yo') > -1) || (message.toLowerCase().indexOf('heyo') > -1)) {
@@ -633,7 +634,8 @@ var read = function (sender, message, reply) {
                             if (listomajors[amajor]["pdf-link"].toString() != "null") {
                             ha += ", or view the overview PDF at " + listomajors[amajor]["pdf-link"].toString() + "."
                             }
-                            reply(sender, ha)
+                            matchingmajors.push(ha.toString())
+                            reply(sender, matchingmajors[0])
                     }
                 }
                 containsmajor=false
