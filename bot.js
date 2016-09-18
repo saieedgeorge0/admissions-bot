@@ -596,7 +596,6 @@ var findOrCreateSession = function (fbid) {
 }
 
 var containsmajor = false
-var matchingmajors = []
 
 var read = function (sender, message, reply) {
     if((message.toLowerCase().indexOf('hello') > -1) || (message.toLowerCase().indexOf('hi') > -1) || (message.toLowerCase().indexOf('hey') > -1) || (message.toLowerCase().indexOf('yo') > -1) || (message.toLowerCase().indexOf('heyo') > -1)) {
