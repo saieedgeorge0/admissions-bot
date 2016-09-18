@@ -607,6 +607,7 @@ var read = function (sender, message, reply) {
             {
                 if (listomajors.hasOwnProperty(amajor)) {
                     var majorwords = message.toLowerCase().split(" ")
+                    reply(sender, majorwords[0])
                     for (var m = 0; m<majorwords.length; m++) {
                         if(listomajors[amajor].name.toString().toLowerCase.indexOf(majorwords[m]) > -1)
                             {
