@@ -620,9 +620,10 @@ var read = function (sender, message, reply) {
                             ha += " If you'd like to learn more, you can visit the dept. site at " + listomajors[amajor].link.toString()
                             
                             if (listomajors[amajor]["pdf-link"].toString() != "null") {
-                            ha += ", or view the requirements PDF at " + listomajors[amajor]["pdf-link"].toString() + "."
+                            ha += ", or view the overview PDF at " + listomajors[amajor]["pdf-link"].toString() + "."
                             }
                             reply(sender, ha)
+                            break
                         }
                     }
                 }
