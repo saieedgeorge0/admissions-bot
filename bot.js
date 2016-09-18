@@ -595,6 +595,7 @@ var findOrCreateSession = function (fbid) {
   return sessionId
 }
 
+var containsmajor = false
 
 var read = function (sender, message, reply) {
     if((message.toLowerCase().indexOf('hello') > -1) || (message.toLowerCase().indexOf('hi') > -1) || (message.toLowerCase().indexOf('hey') > -1) || (message.toLowerCase().indexOf('yo') > -1) || (message.toLowerCase().indexOf('heyo') > -1)) {
@@ -602,10 +603,19 @@ var read = function (sender, message, reply) {
 		reply(sender, message)
 	} 
     else if ((message.toLowerCase().indexOf('major') > -1) || (message.toLowerCase().indexOf('course') > -1) || (message.toLowerCase().indexOf('concentration') > -1) || (message.toLowerCase().indexOf('department') > -1) || (message.toLowerCase().indexOf('dept') > -1)) {
+        matchingmajors=[]
+        namemajors=[]
         for (var amajor in listomajors)
             {
                 if (listomajors.hasOwnProperty(amajor)) {
-                    if (listomajors[amajor].name.toString().toLowerCase().indexOf(message.toLowerCase())>-1){
+                    var majorwords = message.toLowerCase().split(" ")
+                    for (var m = 0; m<majorwords.length; m++) {
+                        if(listomajors[amajor].name.toString().toLowerCase.indexOf(majorwords[m]) > -1)
+                            {
+                                containsmajor=true
+                            }
+                    }
+                    if (containsmajor){
                             var ha = listomajors[amajor].name.toString() + ", or, Course " + listomajors[amajor].course.toString() + ", "
                             if ((listomajors[amajor].ismajor.toString() == "1") && (listomajors[amajor].isminor.toString() == "1")) {
                                 ha += "is offered as a both a major and a minor."
@@ -624,6 +634,7 @@ var read = function (sender, message, reply) {
                             reply(sender, ha)
                     }
                 }
+                containsmajor=false
             }
 
     }
