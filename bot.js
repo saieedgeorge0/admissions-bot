@@ -654,12 +654,13 @@ var read = function (sender, message, reply) {
             specifymajor = specifymajor.slice(0, -2)
             specifymajor += ". "
             specifymajor += "Ask for something more specific, and I can give you more info!"
-            reply(sender, specifymajor)
+            reply(sender, specifymajor.toString())
         }
         else {
             reply(sender, "this SUCKS")
         }
-        reply(sender, namemajors[1].toString())
+        var blah = namemajors[0].toString() + namemajors[1].toString() + namemajors[2].toString()
+        reply(sender, blah)
     }
     else {
 		// Let's find the user
