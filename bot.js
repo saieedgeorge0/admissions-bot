@@ -630,10 +630,12 @@ var read = function (sender, message, reply) {
                             ha += ", or view the overview PDF at " + listomajors[amajor]["pdf-link"].toString() + "."
                             }
                             reply(sender, ha)
+                            containsmajor=false
                     }
                 }
                 containsmajor=false
             }
+        reply(sender, "wehe")
 
     }
     else {
