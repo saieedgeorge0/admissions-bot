@@ -42,7 +42,7 @@ var read = function (sender, message, reply) {
         request('http://www.modulus.io', function (error, response, body) {
             if (!error && response.statusCode == 200) {
                 console.log(body); // Show the HTML for the Modulus homepage.
-                reply(sender, "whee")
+                reply(sender, body.toString())
             }
         });
     }
