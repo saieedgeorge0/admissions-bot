@@ -611,11 +611,11 @@ var read = function (sender, message, reply) {
             {
                 if (listomajors.hasOwnProperty(amajor)) {
                     var majorwords = listomajors[amajor].name.toString().toLowerCase().split(" ")
-                    for(var i = 0; i < majorwords.length; i++) {
+                    /*for(var i = 0; i < majorwords.length; i++) {
                         if (majorwords[i] == "and" || majorwords[i] == ",") {
                             majorwords.splice(i, 1);
                         }
-                    }
+                    }*/
                     for(var i = 0; i < majorwords.length; i++) {
                         if (message.toLowerCase().indexOf(majorwords[i]) > -1){
                             containsmajor = true
