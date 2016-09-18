@@ -610,10 +610,10 @@ var read = function (sender, message, reply) {
                     for (var m = 0; m<majorwords.length; m++) {
                         if(listomajors[amajor].name.toString().toLowerCase.indexOf(majorwords[m].toString()) > -1)
                             {
+                                reply(sender, containsmajor.toString())
                                 containsmajor=true
                             }
                     }
-                    reply(sender, containsmajor.toString())
                     if (containsmajor){
                             var ha = listomajors[amajor].name.toString() + ", or, Course " + listomajors[amajor].course.toString() + ", "
                             if ((listomajors[amajor].ismajor.toString() == "1") && (listomajors[amajor].isminor.toString() == "1")) {
