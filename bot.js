@@ -639,7 +639,7 @@ var read = function (sender, message, reply) {
                 }
                 containsmajor=false
             }
-        if (matchingmajors[0].length == 1) {
+        if (matchingmajors.length == 1) {
             reply(sender, matchingmajors[0])
         }
     }
