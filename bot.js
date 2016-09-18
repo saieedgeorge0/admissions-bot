@@ -600,10 +600,11 @@ var matchingmajors = []
 
 var read = function (sender, message, reply) {
     if((message.toLowerCase().indexOf('hello') > -1) || (message.toLowerCase().indexOf('hi') > -1) || (message.toLowerCase().indexOf('hey') > -1) || (message.toLowerCase().indexOf('yo') > -1) || (message.toLowerCase().indexOf('heyo') > -1)) {
-		message += "Hi! I'm MIT's Admissions chatbot. You can ask me anything you'd like to know about MIT!"
+		message = "Hi! I'm MIT's Admissions chatbot. You can ask me anything you'd like to know about MIT!"
 		reply(sender, message)
 	} 
     else if ((message.toLowerCase().indexOf('major') > -1) || (message.toLowerCase().indexOf('course') > -1) || (message.toLowerCase().indexOf('concentration') > -1) || (message.toLowerCase().indexOf('department') > -1) || (message.toLowerCase().indexOf('dept') > -1)) {
+        matchingmajors=[]
         for (var amajor in listomajors)
             {
                 if (listomajors.hasOwnProperty(amajor)) {
