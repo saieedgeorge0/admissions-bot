@@ -595,9 +595,6 @@ var findOrCreateSession = function (fbid) {
   return sessionId
 }
 
-var containsmajor = false
-var matchingmajors = []
-var namemajors = []
 
 var read = function (sender, message, reply) {
     if((message.toLowerCase().indexOf('hello') > -1) || (message.toLowerCase().indexOf('hi') > -1) || (message.toLowerCase().indexOf('hey') > -1) || (message.toLowerCase().indexOf('yo') > -1) || (message.toLowerCase().indexOf('heyo') > -1)) {
@@ -605,23 +602,10 @@ var read = function (sender, message, reply) {
 		reply(sender, message)
 	} 
     else if ((message.toLowerCase().indexOf('major') > -1) || (message.toLowerCase().indexOf('course') > -1) || (message.toLowerCase().indexOf('concentration') > -1) || (message.toLowerCase().indexOf('department') > -1) || (message.toLowerCase().indexOf('dept') > -1)) {
-        matchingmajors=[]
-        namemajors=[]
         for (var amajor in listomajors)
             {
                 if (listomajors.hasOwnProperty(amajor)) {
-                    var majorwords = listomajors[amajor].name.toString().toLowerCase().split(" ")
-                    /*for(var i = 0; i < majorwords.length; i++) {
-                        if (majorwords[i] == "and" || majorwords[i] == ",") {
-                            majorwords.splice(i, 1);
-                        }
-                    }*/
-                    for(var i = 0; i < majorwords.length; i++) {
-                        if (message.toLowerCase().indexOf(majorwords[i]) > -1){
-                            containsmajor = true
-                        }
-                    }
-                    if (containsmajor){
+                    if (listomajors[amajor].name.toString().toLowerCase().indexOf(message.toLowerCase())>-1){
                             var ha = listomajors[amajor].name.toString() + ", or, Course " + listomajors[amajor].course.toString() + ", "
                             if ((listomajors[amajor].ismajor.toString() == "1") && (listomajors[amajor].isminor.toString() == "1")) {
                                 ha += "is offered as a both a major and a minor."
@@ -637,32 +621,11 @@ var read = function (sender, message, reply) {
                             if (listomajors[amajor]["pdf-link"].toString() != "null") {
                             ha += ", or view the overview PDF at " + listomajors[amajor]["pdf-link"].toString() + "."
                             }
-                            namemajors.push(listomajors[amajor].name.toString())
-                            matchingmajors.push(ha.toString())
+                            reply(sender, ha)
                     }
                 }
-                containsmajor=false
             }
-        if (namemajors.length == 1) {
-            reply(sender, matchingmajors[0])
-        }
-        /*if(namemajors.length > 1) {
-            var blah = namemajors[0].toString() + namemajors[1].toString() + namemajors[2].toString()
-            reply(sender, blah)
-            specifymajor = "You asked for too generic a major! Here's a list of majors that fit your search: "
-            for (var m = 0; m<namemajors.length; m++) {
-                specifymajor += namemajors[m].toString() + ", "
-            }
-            specifymajor = specifymajor.slice(0, -2)
-            specifymajor += ". "
-            specifymajor += "Ask for something more specific, and I can give you more info!"
-            reply(sender, specifymajor.toString())
-        }*/
-        else {
-            reply(sender, "this SUCKS")
-        }
-        var blah = namemajors[0].toString() + namemajors[1].toString() + namemajors[2].toString()
-        reply(sender, blah)
+
     }
     else {
 		// Let's find the user
