@@ -604,8 +604,10 @@ var read = function (sender, message, reply) {
         for (var amajor in listomajors)
             {
                 if (listomajors.hasOwnProperty(amajor)) {
-                    var ha = listomajors[amajor].name.toString()
-                    reply(sender, ha)
+                    if (message.toLowerCase().indexOf(listomajors[amajor].name.toString().toLowerCase()>-1){
+                        var ha = listomajors[amajor].name.toString()
+                        reply(sender, ha)
+                    }
                 }
             }
     }
