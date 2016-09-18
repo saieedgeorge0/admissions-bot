@@ -643,10 +643,10 @@ var read = function (sender, message, reply) {
                 }
                 containsmajor=false
             }
-        if (matchingmajors.length == 1) {
+        if (namemajors.length == 1) {
             reply(sender, matchingmajors[0])
         }
-        else if(matchingmajors.length > 1) {
+        else if(namemajors.length > 1) {
             specifymajor = "You asked for too generic a major! Here's a list of majors that fit your search: "
             for (var m = 0; m<namemajors.length; m++) {
                 specifymajor += namemajors[m].toString() + ", "
