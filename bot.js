@@ -31,20 +31,13 @@ var findOrCreateSession = function (fbid) {
   return sessionId
 }
 
-var request = require('request');
-
 var read = function (sender, message, reply) {
     if((message.toLowerCase().indexOf('hello') > -1) || (message.toLowerCase().indexOf('hi') > -1) || (message.toLowerCase().indexOf('hey') > -1) || (message.toLowerCase().indexOf('yo') > -1) || (message.toLowerCase().indexOf('heyo') > -1)) {
 		message += "Hi! I'm MIT's Admissions chatbot. You can ask me anything you'd like to know about MIT!"
 		reply(sender, message)
 	} 
-    else if (message === "duh") {
-        request('http://www.modulus.io', function (error, response, body) {
-            if (!error && response.statusCode == 200) {
-                console.log(body); // Show the HTML for the Modulus homepage.
-                reply(sender, body.toString())
-            }
-        });
+    else if ((message.toLowerCase().indexOf('major') > -1) || (message.toLowerCase().indexOf('course') > -1) || (message.toLowerCase().indexOf('concentration') > -1) || (message.toLowerCase().indexOf('department') > -1)) {
+        reply(sender, "you want a major")
     }
     else {
 		// Let's find the user
