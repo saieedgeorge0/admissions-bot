@@ -595,6 +595,8 @@ var findOrCreateSession = function (fbid) {
   return sessionId
 }
 
+var endresult = ""
+
 var read = function (sender, message, reply) {
     if((message.toLowerCase().indexOf('hello') > -1) || (message.toLowerCase().indexOf('hi') > -1) || (message.toLowerCase().indexOf('hey') > -1) || (message.toLowerCase().indexOf('yo') > -1) || (message.toLowerCase().indexOf('heyo') > -1)) {
 		message += "Hi! I'm MIT's Admissions chatbot. You can ask me anything you'd like to know about MIT!"
@@ -627,10 +629,11 @@ var read = function (sender, message, reply) {
                             if (listomajors[amajor]["pdf-link"].toString() != "null") {
                             ha += ", or view the overview PDF at " + listomajors[amajor]["pdf-link"].toString() + "."
                             }
-                            reply(sender, ha)
+                            endresult += ha
+                            break
                         }
-                        break
                     }
+                    reply(sender, endresult)
                 }
             }
     }
