@@ -651,7 +651,7 @@ var read = function (sender, message, reply) {
             for (var m = 0; m<namemajors.length; m++) {
                 specifymajor += namemajors[m].toString() + ", "
             }
-            specifymajor.slice(0, -1)
+            specifymajor.slice(0, -2)
             specifymajor += ". "
             specifymajor += "Ask for something more specific, and I can give you more info!"
             reply(sender, specifymajor)
