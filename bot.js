@@ -72,7 +72,7 @@ var listomajors = [
              "pdf-link": "http://mitadmissions.org/mit-docs/04-Architecture(2014).pdf", 
     }, 
     { 
-             "name": "Art, Culture and Technology", 
+             "name": "Art , Culture and Technology", 
              "link": "http://visualarts.mit.edu/about/undergrad_program.html", 
              "course": "4", 
              "ismajor": "0", 
