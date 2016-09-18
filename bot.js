@@ -31,11 +31,22 @@ var findOrCreateSession = function (fbid) {
   return sessionId
 }
 
+var request = require('request');
+
 var read = function (sender, message, reply) {
     if((message.toLowerCase().indexOf('hello') > -1) || (message.toLowerCase().indexOf('hi') > -1) || (message.toLowerCase().indexOf('hey') > -1) || (message.toLowerCase().indexOf('yo') > -1) || (message.toLowerCase().indexOf('heyo') > -1)) {
-		message = "Hi! I'm MIT's Admissions chatbot. You can ask me anything you'd like to know about MIT!"
+		message += "Hi! I'm MIT's Admissions chatbot. You can ask me anything you'd like to know about MIT!"
 		reply(sender, message)
-	} else {
+	} 
+    else if (message === "duh") {
+        request('http://www.modulus.io', function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+                console.log(body); // Show the HTML for the Modulus homepage.
+            }
+            reply(sender, body)
+        });
+    }
+    else {
 		// Let's find the user
 		var sessionId = findOrCreateSession(sender)
 		// Let's forward the message to the Wit.ai bot engine
