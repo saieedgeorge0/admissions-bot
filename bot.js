@@ -608,7 +608,7 @@ var read = function (sender, message, reply) {
                 if (listomajors.hasOwnProperty(amajor)) {
                     var majorwords = listomajors[amajor].name.toString().toLowerCase().split(" ")
                     for(var i = 0; i < majorwords.length; i++) {
-                        if (majorwords[i] == "and") {
+                        if (majorwords[i] == "and" || majorwords[i] == ",") {
                             majorwords.splice(i, 1);
                         }
                     }
