@@ -636,6 +636,7 @@ var read = function (sender, message, reply) {
                             reply(sender, ha)
                     }
                 }
+                containsmajor=false
             }
     }
     else {
